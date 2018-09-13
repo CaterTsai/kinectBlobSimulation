@@ -4,8 +4,8 @@
 #include "ofxNetwork.h"
 
 static const int cKMaxBlobNumEach = 5;
-static const int cTestBlobSize = 5;
-static const int cUDPSendMsgLength = 50;
+static const int cTestBlobSize = 10;
+
 static const float cSendTime = 0.5;
 
 struct blobData
@@ -28,6 +28,7 @@ struct kinectPackage
 	uint8_t _kid;
 	blobData _blobData[cKMaxBlobNumEach];
 };
+static const int cUDPSendMsgLength = sizeof(kinectPackage);
 
 
 class testBlobData
@@ -38,7 +39,7 @@ public:
 		pos.set(ofRandomWidth(), ofRandomHeight());
 		vec.set(1.0, 0.0);
 		vec.rotate(ofRandom(0, 360));
-		vec *= ofRandom(100, 200);
+		vec *= ofRandom(20, 80);
 
 		width = ofRandom(50, 200);
 		height = ofRandom(50, 200);
